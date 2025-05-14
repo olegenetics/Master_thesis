@@ -24,7 +24,6 @@ output_dir1="/mnt/SCRATCH/oleg/fastq/nanoplot"
 output_dir2="/mnt/SCRATCH/oleg/fastq/nanoplot"
 output_dir3="/mnt/SCRATCH/oleg/fastq/nanoplot"
 
-# Create output directories if they don't exist
 
 # Run NanoPlot for seed1__flakong_10x.fastq.gz
 echo "Running NanoPlot for $input_file1..."
