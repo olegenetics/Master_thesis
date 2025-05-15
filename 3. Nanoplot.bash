@@ -1,14 +1,14 @@
 #!/bin/bash
-#SBATCH --job-name=10x_af_nanoplot_flakong  # Job name
-#SBATCH --mail-user=yourname@nmbu.no  # Email notifications
-#SBATCH --mail-type=END               # Send email at the end of the job
-#SBATCH --mem=75G                    # Memory allocation
-#SBATCH --ntasks=1                    # Number of tasks
-#SBATCH --cpus-per-task=8             # Number of CPU cores per task
-#SBATCH --time=24:00:00               # Time limit (24 hours)
-#SBATCH --output=nanoplot5x_af.flakong_%j.log      # Standard output and error log
+#SBATCH --job-name=10x_af_nanoplot_flakong  
+#SBATCH --mail-user=yourname@nmbu.no  
+#SBATCH --mail-type=END              
+#SBATCH --mem=75G                    
+#SBATCH --ntasks=1                    
+#SBATCH --cpus-per-task=8             
+#SBATCH --time=24:00:00               
+#SBATCH --output=nanoplot5x_af.flakong_%j.log     
 
-# Activate the conda environment containing NanoPlot
+# Activates the conda environment containing NanoPlot
 module load Miniconda3 && eval "$(conda shell.bash hook)"
 conda activate /mnt/users/oleg/.conda/envs/MyCondaEnvironments
 
@@ -25,15 +25,15 @@ output_dir2="/mnt/SCRATCH/oleg/fastq/nanoplot"
 output_dir3="/mnt/SCRATCH/oleg/fastq/nanoplot"
 
 
-# Run NanoPlot for seed1__flakong_10x.fastq.gz
+# Runs NanoPlot for seed1__flakong_10x.fastq.gz
 echo "Running NanoPlot for $input_file1..."
 NanoPlot --fastq "$input_file1" --outdir "$output_dir1" --plots hex dot --no_supplementary --no_static --N50 -p after__filtering_flakong10x_seed1
 
-# Run NanoPlot for seed2__flakong_10x.fastq.gz
+# Runs NanoPlot for seed2__flakong_10x.fastq.gz
 echo "Running NanoPlot for $input_file2..."
 NanoPlot --fastq "$input_file2" --outdir "$output_dir2" --plots hex dot --no_supplementary --no_static --N50 -p after_filtering_flakong10x_seed2
 
-# Run NanoPlot for seed3__flakong_10x.fastq.gz
+# Runs NanoPlot for seed3__flakong_10x.fastq.gz
 echo "Running NanoPlot for $input_file3..."
 NanoPlot --fastq "$input_file3" --outdir "$output_dir3" --plots hex dot --no_supplementary --no_static --N50 -p after_filtering_flakong10x_seed3
 
